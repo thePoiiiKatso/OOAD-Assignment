@@ -1,0 +1,29 @@
+// For format details, see https://aka.ms/devcontainer.json. 
+// For config options, see https://containers.dev/guide
+{
+  "name": "Java 21 Project",
+
+  // Use a prebuilt Java container image from Microsoft
+  "image": "mcr.microsoft.com/devcontainers/java:0-21",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": "true",
+      "installGradle": "false"
+    }
+  },
+
+  // Run this after the container is created
+  "postCreateCommand": "java -version",
+
+  // Configure VS Code inside Codespaces
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",          // Java support
+        "streetsidesoftware.code-spell-checker" // Spell checker (optional)
+      ]
+    }
+  }
+}
