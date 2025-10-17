@@ -1,3 +1,6 @@
+package bankingsystem.model;
+
+
 import java.util.Date;
 
 public class IndividualCustomer extends Customer {

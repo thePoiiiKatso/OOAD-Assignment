@@ -1,3 +1,5 @@
+package bankingsystem.model;
+
 import java.util.Date;
 
 public class TransactionAccount {
