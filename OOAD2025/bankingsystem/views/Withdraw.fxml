@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff3b0; fx-text-fill: white;;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.WithdrawController">
+   <children>
+      <Text fill="#003366" layoutX="164.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #003366;" text="Lekgwere Banking System" wrappingWidth="246.39999389648438">
+         <font>
+            <Font name="Segoe UI Bold Italic" size="19.0" />
+         </font>
+      </Text>
+      <ImageView id="main-pane" fitHeight="90.0" fitWidth="88.0" layoutX="401.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/sunset-.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnConfirm" layoutX="343.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleWithdraw" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: linear-gradient(to right, #004e92, #000428); fx-text-fill: white;;" text="Confirm" textFill="WHITE" />
+      <Pane layoutX="125.0" layoutY="98.0" prefHeight="204.0" prefWidth="364.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5); -fx-background-radius: 15;;">
+         <children>
+            <Text fill="#003366" layoutX="14.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Withdraw Balance:" wrappingWidth="161.60003662109375">
+               <font>
+                  <Font name="Britannic Bold" size="19.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtWithdrawAmount" layoutX="178.0" layoutY="73.0" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #f0f4ff; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-padding: 6 10;;" />
+            <Text fill="#003366" layoutX="9.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Balance:" wrappingWidth="172.0">
+               <font>
+                  <Font name="Britannic Bold" size="19.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtAvailableBalance" layoutX="178.0" layoutY="131.0" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #f0f4ff; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-padding: 6 10;;" />
+            <ImageView fitHeight="62.0" fitWidth="59.0" layoutX="145.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/money-withdrawal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="121.0" fitWidth="136.0" layoutX="14.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/palm-tree.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="504.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="26.0" prefWidth="38.0" />
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="512.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/back-arrow.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

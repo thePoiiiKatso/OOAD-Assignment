@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="608.0" style="-fx-background-color: linear-gradient(to right, white 10%, #fff3b0 80%); -fx-border-width: 1.5px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.PaymentsController">
+   <children>
+      <Text fill="#003366" layoutX="212.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #003366;" text="Lekgwere Banking System" wrappingWidth="246.39999389648438">
+         <font>
+            <Font name="Segoe UI Bold Italic" size="19.0" />
+         </font>
+      </Text>
+      <ImageView id="main-pane" fitHeight="90.0" fitWidth="88.0" layoutX="458.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/sunset-.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="2.0" layoutY="1.0" prefHeight="400.0" prefWidth="157.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="88.0" layoutX="76.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/metsi.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="82.0" fitWidth="117.0" layoutX="76.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/Power.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="68.0" fitWidth="104.0" layoutX="59.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/orangeMoneypng.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="68.0" fitWidth="82.0" layoutX="77.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/airtime.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button layoutX="219.0" layoutY="251.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-font-weight: bold; -fx-font-size: 13px; -fx-border-width: 1.5px;" text="Orange Money" />
+      <Button layoutX="219.0" layoutY="160.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-border-width: 1.5px; -fx-font-weight: bold; -fx-font-size: 13px;" text="Buy Electricity" />
+      <Button layoutX="219.0" layoutY="74.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-font-weight: bold;" text="Pay Water" />
+      <Button layoutX="219.0" layoutY="338.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-font-size: 13px; -fx-font-weight: bold;" text="Buy Airtime" />
+      <ImageView fitHeight="131.0" fitWidth="96.0" layoutX="450.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/botswana.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="534.0" layoutY="372.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="26.0" prefWidth="38.0" />
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="542.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/back-arrow.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

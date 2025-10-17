@@ -1,7 +1,5 @@
 package bankingsystem.model;
 
-
-
 import java.util.Date;
 
 public abstract class BankAccount {
