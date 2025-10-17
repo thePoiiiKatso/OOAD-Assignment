@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff3b0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.ContactUsController">
+   <children>
+      <TextField layoutX="167.0" layoutY="100.0" prefHeight="26.0" prefWidth="252.0" promptText="How can we help you?">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Text fill="#003366" layoutX="137.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #003366;" text="Lekgwere Banking System" wrappingWidth="246.39999389648438">
+         <font>
+            <Font name="Segoe UI Bold Italic" size="19.0" />
+         </font>
+      </Text>
+      <ImageView id="main-pane" fitHeight="77.0" fitWidth="78.0" layoutX="381.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/sunset-.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="77.0" fitWidth="77.0" layoutX="90.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/whatsapp%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="77.0" layoutX="259.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/call.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="117.0" layoutX="412.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/world-wide-web.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="88.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Us" wrappingWidth="97.79998779296875">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="251.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel free" wrappingWidth="97.79998779296875">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="412.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="www.lekgwere.bw" wrappingWidth="158.5999755859375">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="85.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="73140315" wrappingWidth="104.20001220703125">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="241.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00 6736 3267" wrappingWidth="104.20001220703125">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Text>
+      <Button layoutX="506.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="26.0" prefWidth="38.0" />
+      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="514.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/back-arrow.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
