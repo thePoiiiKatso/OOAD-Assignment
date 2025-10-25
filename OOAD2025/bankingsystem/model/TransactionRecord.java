@@ -1,31 +1,58 @@
 package bankingsystem.model;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
+/**
+ * ✅ TransactionRecord Model
+ * Represents one row in the transaction TableView.
+ * Used in ViewTransactionsController.
+ */
 public class TransactionRecord {
-    private final String customerName;
-    private final String accountType;
-    private final double amount;
-    private final double balanceAfter;
-    private final String date;
-    private final String time;
 
-    public TransactionRecord(String customerName, String accountType, double amount, double balanceAfter) {
-        this.customerName = customerName;
-        this.accountType = accountType;
-        this.amount = amount;
-        this.balanceAfter = balanceAfter;
+    private final StringProperty transactionID;
+    private final StringProperty transaction;
+    private final StringProperty date;
+    private final StringProperty time;
+    private final StringProperty accountType;
+    private final StringProperty customerName;
 
-        LocalDateTime now = LocalDateTime.now();
-        this.date = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        this.time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+    public TransactionRecord(String transactionID, String transaction, String date, String time, String accountType, String customerName) {
+        this.transactionID = new SimpleStringProperty(transactionID);
+        this.transaction = new SimpleStringProperty(transaction);
+        this.date = new SimpleStringProperty(date);
+        this.time = new SimpleStringProperty(time);
+        this.accountType = new SimpleStringProperty(accountType);
+        this.customerName = new SimpleStringProperty(customerName);
     }
 
-    public String getCustomerName() { return customerName; }
-    public String getAccountType() { return accountType; }
-    public double getAmount() { return amount; }
-    public double getBalanceAfter() { return balanceAfter; }
-    public String getDate() { return date; }
-    public String getTime() { return time; }
+    // ==================================================
+    // GETTERS
+    // ==================================================
+    public String getTransactionID() { return transactionID.get(); }
+    public String getTransaction() { return transaction.get(); }
+    public String getDate() { return date.get(); }
+    public String getTime() { return time.get(); }
+    public String getAccountType() { return accountType.get(); }
+    public String getCustomerName() { return customerName.get(); }
+
+    // ==================================================
+    // PROPERTIES (used for TableColumn bindings)
+    // ==================================================
+    public StringProperty transactionIDProperty() { return transactionID; }
+    public StringProperty transactionProperty() { return transaction; }
+    public StringProperty dateProperty() { return date; }
+    public StringProperty timeProperty() { return time; }
+    public StringProperty accountTypeProperty() { return accountType; }
+    public StringProperty customerNameProperty() { return customerName; }
+
+    // ==================================================
+    // SETTERS (optional — not required if you don’t edit rows)
+    // ==================================================
+    public void setTransactionID(String value) { transactionID.set(value); }
+    public void setTransaction(String value) { transaction.set(value); }
+    public void setDate(String value) { date.set(value); }
+    public void setTime(String value) { time.set(value); }
+    public void setAccountType(String value) { accountType.set(value); }
+    public void setCustomerName(String value) { customerName.set(value); }
 }

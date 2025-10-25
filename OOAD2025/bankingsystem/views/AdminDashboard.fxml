@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #fff3b0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.AdminDashboardController">
+   
+   <stylesheets>
+      <URL value="@../css/dashboard.css" />
+   </stylesheets>
+
+   <children>
+      <!-- Header -->
+      <Pane prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: #D2B48C; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3);">
+         <children>
+            <Text fill="#5D4037" layoutX="300.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lekgwere Banking System - Admin">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="30.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Downloads/elephant-head.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+
+      <!-- Main Content -->
+      <VBox layoutX="50.0" layoutY="100.0" prefWidth="700.0" spacing="30.0">
+         <children>
+            <!-- Welcome Section -->
+            <VBox alignment="CENTER" spacing="10.0">
+               <Text fill="#5D4037" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Admin Dashboard">
+                  <font>
+                     <Font name="Segoe UI" size="28.0" />
+                  </font>
+               </Text>
+               <Label style="-fx-text-fill: #5D4037; -fx-font-size: 14px;" text="Manage banking operations securely" />
+            </VBox>
+
+            <!-- Statistics Cards -->
+            <HBox alignment="CENTER" spacing="20.0">
+               <children>
+                  <!-- Total Customers Card -->
+                  <VBox prefWidth="200" spacing="10.0" style="-fx-background-color: rgba(210, 180, 140, 0.5); -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/customers.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblTotalCustomers" style="-fx-text-fill: #5D4037; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Total Customers" />
+                     </children>
+                  </VBox>
+
+                  <!-- Pending Approvals Card -->
+                  <VBox prefWidth="200" spacing="10.0" style="-fx-background-color: rgba(210, 180, 140, 0.5); -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/pending.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblPendingApprovals" style="-fx-text-fill: #FF9800; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Pending Approvals" />
+                     </children>
+                  </VBox>
+
+                  <!-- Total Accounts Card -->
+                  <VBox prefWidth="200" spacing="10.0" style="-fx-background-color: rgba(210, 180, 140, 0.5); -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Downloads/accounts.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblTotalAccounts" style="-fx-text-fill: #5D4037; -fx-font-size: 24px; -fx-font-weight: bold;" text="0" />
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Total Accounts" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <!-- Admin Actions Grid -->
+            <VBox spacing="15.0">
+               <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-font-size: 20px;" text="Administrative Actions" />
+               
+               <HBox alignment="CENTER" spacing="20.0">
+                  <children>
+                     <!-- Column 1 -->
+                     <VBox prefWidth="250.0" spacing="15.0">
+                        <Button onAction="#handleRegisterCustomer" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 250; -fx-pref-height: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Register New Customer">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Downloads/add-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+
+                        <Button onAction="#handleManageApprovals" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 250; -fx-pref-height: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Manage Account Approvals">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Downloads/approval.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </VBox>
+
+                     <!-- Column 2 -->
+                     <VBox prefWidth="250.0" spacing="15.0">
+                        <Button onAction="#handleViewCustomers" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 250; -fx-pref-height: 50; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="View Customers">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Downloads/customer-list.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </VBox>
+                  </children>
+               </HBox>
+            </VBox>
+
+            <!-- Logout Button -->
+            <HBox alignment="CENTER">
+               <Button onAction="#handleLogout" style="-fx-background-color: transparent; -fx-text-fill: #5D4037; -fx-border-color: #5D4037; -fx-border-radius: 8; -fx-background-radius: 8; -fx-pref-width: 120; -fx-pref-height: 35;" text="Logout" />
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Wildlife Decorations -->
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="650.0" layoutY="400.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/zebra-pattern.png" />
+         </image>
+      </ImageView>
+      
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="50.0" layoutY="450.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/giraffe.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

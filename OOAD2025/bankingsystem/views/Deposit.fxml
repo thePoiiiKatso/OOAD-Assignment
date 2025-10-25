@@ -1,55 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="600.0" style="-fx-background-color: #fff3b0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.DepositController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="696.0" style="-fx-background-color: #fff3b0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.DepositController">
+   
+   <stylesheets>
+      <URL value="@../css/dashboard.css" />
+   </stylesheets>
+
    <children>
-      <Pane layoutX="107.0" layoutY="112.0" prefHeight="133.0" prefWidth="385.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5); -fx-background-radius: 15;;">
+      <!-- Header -->
+      <Pane prefHeight="70.0" prefWidth="700.0" style="-fx-background-color: #D2B48C; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3);">
          <children>
-            <Text fill="#003366" layoutX="14.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Amount:" wrappingWidth="161.60003662109375">
+            <Text fill="#5D4037" layoutX="250.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Funds">
                <font>
-                  <Font name="Britannic Bold" size="19.0" />
+                  <Font name="Segoe UI Bold" size="20.0" />
                </font>
             </Text>
-            <TextField layoutX="169.0" layoutY="73.0" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #f0f4ff; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-padding: 6 10;;">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </TextField>
-            <ImageView fitHeight="58.0" fitWidth="64.0" layoutX="221.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="30.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Downloads/deposit.png" />
+                  <Image url="@../../../../../Downloads/elephant-head.png" />
                </image>
             </ImageView>
+            <Button layoutX="600.0" layoutY="20.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #5D4037; -fx-border-color: #5D4037; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-width: 70; -fx-pref-height: 30;" text="Back" />
          </children>
       </Pane>
-      <ImageView fitHeight="119.0" fitWidth="109.0" layoutX="467.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+
+      <!-- Main Content -->
+      <VBox layoutX="150.0" layoutY="100.0" prefWidth="400.0" spacing="25.0">
+         <children>
+            <!-- Title -->
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+      
+                        <!-- Deposit Form -->
+                  <VBox spacing="20.0" style="-fx-background-color: rgba(210, 180, 140, 0.3); -fx-background-radius: 10; -fx-padding: 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                     <children>
+                        <!-- Account Selection -->
+                        <VBox spacing="5.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Select Account:" />
+                           <ComboBox fx:id="cmbAccountType" prefHeight="35.0" prefWidth="300.0" promptText="Choose account to deposit into" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                           <Label fx:id="lblCurrentBalance" style="-fx-text-fill: #5D4037; -fx-font-size: 12px;" text="Current Balance: P 0.00" />
+                        </VBox>
+      
+                              <!-- Deposit Amount -->
+                        <VBox spacing="5.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Deposit Amount (P):" />
+                           <TextField fx:id="txtDepositAmount" prefHeight="35.0" prefWidth="300.0" promptText="Enter amount to deposit" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+      
+                              <!-- Security PIN -->
+                        <VBox spacing="5.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Security PIN:" />
+                           <PasswordField fx:id="txtPin" prefHeight="35.0" prefWidth="300.0" promptText="Enter 4-digit PIN" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+      
+                              <!-- Deposit Method -->
+                        <VBox spacing="5.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Deposit Method:" />
+                           <ComboBox fx:id="cmbDepositMethod" prefHeight="35.0" prefWidth="300.0" promptText="Select deposit method" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/deposit.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+
+            <!-- Action Buttons -->
+            <HBox alignment="CENTER" spacing="15.0">
+               <children>
+                  <Button fx:id="btnConfirm" onAction="#handleDeposit" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 120; -fx-pref-height: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Deposit" />
+                  <Button onAction="#handleClear" style="-fx-background-color: transparent; -fx-text-fill: #5D4037; -fx-border-color: #5D4037; -fx-border-radius: 8; -fx-background-radius: 8; -fx-pref-width: 100; -fx-pref-height: 40;" text="Clear" />
+               </children>
+            </HBox>
+
+            <!-- Feedback Label -->
+            <Label fx:id="lblFeedback" prefWidth="350" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-alignment: center;" />
+         </children>
+      </VBox>
+
+      <!-- Wildlife Decorations -->
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="520.0" layoutY="320.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Downloads/zoo.png" />
          </image>
       </ImageView>
-      <Text fill="#003366" layoutX="188.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #003366;" text="Lekgwere Banking System" wrappingWidth="246.39999389648438">
-         <font>
-            <Font name="Segoe UI Bold Italic" size="19.0" />
-         </font>
-      </Text>
-      <ImageView id="main-pane" fitHeight="90.0" fitWidth="88.0" layoutX="416.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+      
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="50.0" layoutY="350.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/sunset-.png" />
+            <Image url="@../../../../../Downloads/giraffe.png" />
          </image>
       </ImageView>
-      <Button layoutX="280.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: linear-gradient(to right, #004e92, #000428); fx-text-fill: white;;" text="Confirm" textFill="WHITE" />
-      <Button layoutX="473.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="26.0" prefWidth="38.0" />
-      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="481.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true">
+      
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="580.0" layoutY="150.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/back-arrow.png" />
+            <Image url="@../../../../../Downloads/zebra-pattern.png" />
          </image>
       </ImageView>
    </children>

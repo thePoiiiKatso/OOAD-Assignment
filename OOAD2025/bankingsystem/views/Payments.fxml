@@ -1,62 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="608.0" style="-fx-background-color: linear-gradient(to right, white 10%, #fff3b0 80%); -fx-border-width: 1.5px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.PaymentsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1511.0" prefWidth="873.0" style="-fx-background-color: #fff3b0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.PaymentsController">
+   
+   <stylesheets>
+      <URL value="@../css/dashboard.css" />
+   </stylesheets>
+
    <children>
-      <Text fill="#003366" layoutX="212.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: #003366;" text="Lekgwere Banking System" wrappingWidth="246.39999389648438">
-         <font>
-            <Font name="Segoe UI Bold Italic" size="19.0" />
-         </font>
-      </Text>
-      <ImageView id="main-pane" fitHeight="90.0" fitWidth="88.0" layoutX="458.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../Downloads/sunset-.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="2.0" layoutY="1.0" prefHeight="400.0" prefWidth="157.0" style="-fx-background-color: white;">
+      <!-- Header -->
+      <Pane prefHeight="70.0" prefWidth="850.0" style="-fx-background-color: #D2B48C; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3);">
          <children>
-            <ImageView fitHeight="82.0" fitWidth="88.0" layoutX="76.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+            <Text fill="#5D4037" layoutX="320.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make Payments">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="30.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Downloads/metsi.png" />
+                  <Image url="@../../../../../Downloads/elephant-head.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="82.0" fitWidth="117.0" layoutX="76.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Downloads/Power.jpeg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="68.0" fitWidth="104.0" layoutX="59.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Downloads/orangeMoneypng.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="68.0" fitWidth="82.0" layoutX="77.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Downloads/airtime.png" />
-               </image>
-            </ImageView>
+            <Button layoutX="750.0" layoutY="20.0" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #5D4037; -fx-border-color: #5D4037; -fx-border-radius: 5; -fx-background-radius: 5; -fx-pref-width: 70; -fx-pref-height: 30;" text="Back" />
          </children>
       </Pane>
-      <Button layoutX="219.0" layoutY="251.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-font-weight: bold; -fx-font-size: 13px; -fx-border-width: 1.5px;" text="Orange Money" />
-      <Button layoutX="219.0" layoutY="160.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-border-width: 1.5px; -fx-font-weight: bold; -fx-font-size: 13px;" text="Buy Electricity" />
-      <Button layoutX="219.0" layoutY="74.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-font-weight: bold;" text="Pay Water" />
-      <Button layoutX="219.0" layoutY="338.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-background-color: white; -fx-text-fill: #222; -fx-background-radius: 8; -fx-border-color: black; -fx-font-size: 13px; -fx-font-weight: bold;" text="Buy Airtime" />
-      <ImageView fitHeight="131.0" fitWidth="96.0" layoutX="450.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+
+      <!-- Main Content -->
+      <VBox layoutX="40.0" layoutY="90.0" prefWidth="770.0" spacing="20.0">
+         <children>
+            <!-- Title -->
+            <Text fill="#5D4037" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Payment Services">
+               <font>
+                  <Font name="Segoe UI" size="24.0" />
+               </font>
+            </Text>
+
+            <!-- Payment Sections -->
+            <VBox spacing="15.0">
+               <!-- Local Transfer -->
+               <TitledPane prefWidth="750.0" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Local Transfer">
+                  <content>
+                     <VBox spacing="15.0" style="-fx-background-color: rgba(210, 180, 140, 0.2); -fx-padding: 20;">
+                        <VBox spacing="8.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Recipient Name:" />
+                           <TextField fx:id="txtRecipient" prefHeight="35.0" prefWidth="400.0" promptText="Enter recipient full name" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+                        
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                                 <TextField fx:id="txtAmount" prefHeight="35.0" prefWidth="250.0" promptText="Enter amount" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Security PIN:" />
+                                 <PasswordField fx:id="txtPin" prefHeight="35.0" prefWidth="250.0" promptText="Enter 4-digit PIN" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                           </children>
+                        </HBox>
+                        
+                        <Button onAction="#handleSendPayment" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 150; -fx-pref-height: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Send Payment" />
+                     </VBox>
+                  </content>
+               </TitledPane>
+
+               <!-- International Transfer -->
+               <TitledPane prefWidth="750.0" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-border-color: #D2B48C;" text="International Transfer">
+                  <content>
+                     <VBox spacing="15.0" style="-fx-background-color: rgba(210, 180, 140, 0.2); -fx-padding: 20;">
+                        <VBox spacing="8.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Account Number:" />
+                           <TextField fx:id="txtIntlAccountNumber" prefHeight="35.0" prefWidth="400.0" promptText="Enter international account number" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+                        
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                                 <TextField fx:id="txtIntlAmount" prefHeight="35.0" prefWidth="250.0" promptText="Enter amount" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Country:" />
+                                 <ComboBox fx:id="cmbCountry" prefHeight="35.0" prefWidth="250.0" promptText="Select country" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                           </children>
+                        </HBox>
+                        
+                        <Button onAction="#handleInternationalTransfer" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 200; -fx-pref-height: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Send International Transfer" />
+                     </VBox>
+                  </content>
+               </TitledPane>
+
+               <!-- Electricity Payment -->
+               <TitledPane prefWidth="750.0" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Electricity Payment">
+                  <content>
+                     <VBox spacing="15.0" style="-fx-background-color: rgba(210, 180, 140, 0.2); -fx-padding: 20;">
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Provider:" />
+                                 <ComboBox fx:id="cmbElectricity" prefHeight="35.0" prefWidth="250.0" promptText="Select provider" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Meter Number:" />
+                                 <TextField fx:id="txtMeterNumber" prefHeight="35.0" prefWidth="250.0" promptText="Enter meter number" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                           </children>
+                        </HBox>
+                        
+                        <VBox prefWidth="250.0" spacing="8.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                           <TextField fx:id="txtElectricityAmount" prefHeight="35.0" prefWidth="250.0" promptText="Enter amount" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+                        
+                        <Button onAction="#handleElectricityPayment" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 160; -fx-pref-height: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Pay Electricity Bill" />
+                     </VBox>
+                  </content>
+               </TitledPane>
+
+               <!-- Airtime Purchase -->
+               <TitledPane prefWidth="750.0" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Airtime Purchase">
+                  <content>
+                     <VBox spacing="15.0" style="-fx-background-color: rgba(210, 180, 140, 0.2); -fx-padding: 20;">
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Network:" />
+                                 <ComboBox fx:id="cmbAirtime" prefHeight="35.0" prefWidth="250.0" promptText="Select network" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Phone Number:" />
+                                 <TextField fx:id="txtPhoneNumber" prefHeight="35.0" prefWidth="250.0" promptText="Enter phone number" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                           </children>
+                        </HBox>
+                        
+                        <VBox prefWidth="250.0" spacing="8.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                           <TextField fx:id="txtAirtimeAmount" prefHeight="35.0" prefWidth="250.0" promptText="Enter amount" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+                        
+                        <Button onAction="#handleAirtimePayment" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 120; -fx-pref-height: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Buy Airtime" />
+                     </VBox>
+                  </content>
+               </TitledPane>
+
+               <!-- Metsi (Water) Payment -->
+               <TitledPane prefWidth="750.0" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Metsi (Water Bill)">
+                  <content>
+                     <VBox spacing="15.0" style="-fx-background-color: rgba(210, 180, 140, 0.2); -fx-padding: 20;">
+                        <HBox spacing="15.0">
+                           <children>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Water Provider:" />
+                                 <ComboBox fx:id="cmbMetsi" prefHeight="35.0" prefWidth="250.0" promptText="Select provider" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                              <VBox prefWidth="250.0" spacing="8.0">
+                                 <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Account Number:" />
+                                 <TextField fx:id="txtMetsiAccountNumber" prefHeight="35.0" prefWidth="250.0" promptText="Enter account number" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                              </VBox>
+                           </children>
+                        </HBox>
+                        
+                        <VBox prefWidth="250.0" spacing="8.0">
+                           <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                           <TextField fx:id="txtMetsiAmount" prefHeight="35.0" prefWidth="250.0" promptText="Enter amount" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5; -fx-background-radius: 5;" />
+                        </VBox>
+                        
+                        <Button onAction="#handleMetsiPayments" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 140; -fx-pref-height: 40; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 2);" text="Pay Water Bill" />
+                     </VBox>
+                  </content>
+               </TitledPane>
+            </VBox>
+
+            <!-- Feedback Label -->
+            <Label fx:id="lblFeedback" prefWidth="700" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-alignment: center; -fx-padding: 10;" />
+         </children>
+      </VBox>
+
+      <!-- Wildlife Decorations -->
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="720.0" layoutY="550.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/botswana.png" />
+            <Image url="@../../../../../Downloads/zebra-pattern.png" />
          </image>
       </ImageView>
-      <Button layoutX="534.0" layoutY="372.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="26.0" prefWidth="38.0" />
-      <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="542.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+      
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="40.0" layoutY="580.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/back-arrow.png" />
+            <Image url="@../../../../../Downloads/giraffe.png" />
          </image>
       </ImageView>
    </children>
