@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="748.0" prefWidth="796.0" style="-fx-background-color: #fff3b0;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.ViewTransactionsController">
+
+   <children>
+      <!-- Header -->
+      <Pane prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: #D2B48C;                    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3);">
+         <children>
+            <Text fill="#5D4037" layoutX="243.0" layoutY="42.0" text="Lekgwere Banking System">
+               <font>
+                  <Font name="Segoe UI Bold" size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="700.0" layoutY="20.0" onAction="#handleBack" style="-fx-background-color: transparent;                            -fx-text-fill: #5D4037;                            -fx-border-color: #5D4037;                            -fx-border-radius: 5;                            -fx-background-radius: 5;                            -fx-pref-width: 70;                            -fx-pref-height: 30;" text="Back" />
+            <ImageView fitHeight="125.0" fitWidth="107.0" layoutX="14.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/mammal%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="90.0" fitWidth="91.0" layoutX="489.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/sunset-.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+
+      <!-- Main Content -->
+      <VBox layoutX="50.0" layoutY="90.0" prefWidth="700.0" spacing="20.0">
+
+         <!-- Search Section -->
+         <VBox prefHeight="84.0" prefWidth="700.0" spacing="10.0" style="-fx-background-color: rgba(210,180,140,0.3);                       -fx-background-radius: 10;                       -fx-padding: 15;">
+            <children>
+               <Label style="-fx-text-fill: #5D4037;                              -fx-font-weight: bold;                              -fx-font-size: 16px;" text="Search Transactions" />
+               <HBox spacing="10.0">
+                  <children>
+                     <TextField fx:id="txtSearch" prefWidth="300.0" promptText="Search by Transaction ID, Date, or Type" style="-fx-background-color: white;                                        -fx-border-color: #D2B48C;                                        -fx-border-radius: 5;" />
+                     <Button onAction="#handleSearch" style="-fx-background-color: #D2B48C;                                     -fx-text-fill: #5D4037;                                     -fx-font-weight: bold;                                     -fx-pref-width: 100;" text="Search" />
+                     <Button onAction="#handleShowAll" style="-fx-background-color: transparent;                                     -fx-text-fill: #5D4037;                                     -fx-border-color: #5D4037;                                     -fx-pref-width: 120;" text="Show All" />
+                  </children>
+               </HBox>
+            </children>
+         </VBox>
+
+         <!-- Table Section -->
+         <TableView fx:id="tblTransactions" prefHeight="300.0" prefWidth="700.0" style="-fx-background-color: white;                            -fx-border-color: #D2B48C;                            -fx-border-radius: 5;                            -fx-background-radius: 5;">
+            <columns>
+               <TableColumn fx:id="colTransactionID" prefWidth="100.0" text="Transaction ID" />
+               <TableColumn fx:id="colType" prefWidth="120.0" text="Type" />
+               <TableColumn fx:id="colAmount" prefWidth="100.0" text="Amount (P)" />
+               <TableColumn fx:id="colDate" prefWidth="120.0" text="Date" />
+               <TableColumn fx:id="colTime" prefWidth="100.0" text="Time" />
+               <TableColumn fx:id="colAccount" prefWidth="120.0" text="Account" />
+               <TableColumn fx:id="colDescription" prefWidth="140.0" text="Description" />
+            </columns>
+         </TableView>
+
+         <!-- Summary Section -->
+         <HBox spacing="20.0" style="-fx-background-color: #D2B48C;                       -fx-background-radius: 8;                       -fx-padding: 10;">
+            <children>
+               <VBox>
+                  <Label style="-fx-font-weight: bold;                                 -fx-text-fill: #5D4037;" text="Total Transactions:" />
+                  <Label fx:id="lblTotalTransactions" style="-fx-font-size: 16px;                                 -fx-text-fill: #5D4037;" text="0" />
+               </VBox>
+               <VBox>
+                  <Label style="-fx-font-weight: bold;                                 -fx-text-fill: #5D4037;" text="Total Deposits:" />
+                  <Label fx:id="lblTotalDeposits" style="-fx-font-size: 16px;                                 -fx-text-fill: #2E8B57;" text="P 0.00" />
+               </VBox>
+               <VBox>
+                  <Label style="-fx-font-weight: bold;                                 -fx-text-fill: #5D4037;" text="Total Withdrawals:" />
+                  <Label fx:id="lblTotalWithdrawals" style="-fx-font-size: 16px;                                 -fx-text-fill: #D32F2F;" text="P 0.00" />
+               </VBox>
+            </children>
+         </HBox>
+
+         <!-- Actions -->
+         <HBox alignment="CENTER" spacing="15.0">
+            <children>
+               <Button onAction="#handleExport" style="-fx-background-color: #D2B48C;                               -fx-text-fill: #5D4037;                               -fx-font-weight: bold;                               -fx-background-radius: 8;                               -fx-pref-width: 150;" text="Export to CSV" />
+               <Button onAction="#handlePrint" style="-fx-background-color: #D2B48C;                               -fx-text-fill: #5D4037;                               -fx-font-weight: bold;                               -fx-background-radius: 8;                               -fx-pref-width: 120;" text="Print" />
+            </children>
+         </HBox>
+
+         <Label fx:id="lblFeedback" style="-fx-text-fill: #5D4037;                        -fx-font-weight: bold;                        -fx-alignment: center;                        -fx-padding: 10;" />
+      </VBox>
+   </children>
+</AnchorPane>

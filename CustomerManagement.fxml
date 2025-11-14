@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="bankingsystem.controllers.CustomerManagementController"
+            prefHeight="685.0" prefWidth="826.0"
+            stylesheets="@style.css"
+            style="-fx-background-color: #fff3b0;">
+   
+   <children>
+      <!-- Header -->
+      <Pane prefHeight="70.0" prefWidth="800.0" styleClass="header">
+         <children>
+            <Text layoutX="300.0" layoutY="40.0"
+                  text="Customer Management"
+                  styleClass="header-text"/>
+            <Button layoutX="700.0" layoutY="20.0"
+                    text="Back"
+                    onAction="#handleBack"
+                    styleClass="button-transparent"/>
+         </children>
+      </Pane>
+
+      <!-- Main Content -->
+      <VBox layoutX="50.0" layoutY="90.0" prefWidth="700.0" spacing="20.0">
+         <children>
+            <Text text="Customer Directory"
+                  style="-fx-fill: #5D4037; -fx-font-weight: bold;">
+               <font>
+                  <Font name="Segoe UI" size="24.0"/>
+               </font>
+            </Text>
+
+            <!-- Search Section -->
+            <HBox spacing="10.0" style="-fx-background-color: rgba(210,180,140,0.3); -fx-background-radius: 10; -fx-padding: 15;">
+               <children>
+                  <TextField fx:id="txtSearch"
+                             prefHeight="35.0" prefWidth="300.0"
+                             promptText="Search by name, ID, or username"
+                             styleClass="text-field"/>
+                  <Button text="Search"
+                          onAction="#handleSearch"
+                          styleClass="button"/>
+                  <Button text="Show All"
+                          onAction="#handleShowAll"
+                          styleClass="button-transparent"/>
+               </children>
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="tblCustomers"
+                       prefHeight="300.0" prefWidth="700.0"
+                       style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5;">
+               <columns>
+                  <TableColumn fx:id="colCustomerId" prefWidth="80.0" text="ID"/>
+                  <TableColumn fx:id="colFullName" prefWidth="150.0" text="Full Name"/>
+                  <TableColumn fx:id="colUsername" prefWidth="120.0" text="Username"/>
+                  <TableColumn fx:id="colAddress" prefWidth="180.0" text="Address"/>
+                  <TableColumn fx:id="colAccountType" prefWidth="120.0" text="Account Type"/>
+                  <TableColumn fx:id="colBalance" prefWidth="120.0" text="Balance (P)"/>
+               </columns>
+            </TableView>
+
+            <!-- Summary -->
+            <HBox spacing="20.0"
+                  style="-fx-background-color: #D2B48C; -fx-background-radius: 8; -fx-padding: 10;">
+               <VBox spacing="5.0">
+                  <Label text="Total Customers:" style="-fx-text-fill: #5D4037; -fx-font-weight: bold;"/>
+                  <Label fx:id="lblTotalCustomers" text="0" style="-fx-text-fill: #5D4037; -fx-font-size: 16px;"/>
+               </VBox>
+               <VBox spacing="5.0">
+                  <Label text="Active Accounts:" style="-fx-text-fill: #5D4037; -fx-font-weight: bold;"/>
+                  <Label fx:id="lblActiveAccounts" text="0" style="-fx-text-fill: #5D4037; -fx-font-size: 16px;"/>
+               </VBox>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

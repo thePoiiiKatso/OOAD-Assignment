@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="900.0" style="-fx-background-color: #fff3b0;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.PaymentsController">
+
+    <children>
+        <!-- Header -->
+        <Pane prefHeight="70.0" prefWidth="900.0" styleClass="header">
+            <children>
+                <Button layoutX="800.0" layoutY="20.0" onAction="#handleBack" styleClass="button-transparent" text="Back" />
+            <Text layoutX="311.0" layoutY="42.0" styleClass="header-text" text="Lekgwere Banking System" />
+            <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="533.0" layoutY="4.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/sunset-.png" />
+               </image>
+            </ImageView>
+            </children>
+        </Pane>
+
+        <!-- Scrollable Payment Sections -->
+        <ScrollPane layoutX="21.0" layoutY="136.0" prefHeight="590.0" prefWidth="854.0" style="-fx-background-color: transparent; -fx-padding: 10;">
+            <content>
+                <VBox prefHeight="214.0" prefWidth="805.0" spacing="20.0" style="-fx-padding: 15;">
+                   <Text styleClass="header-text" text="Make Payments" />
+                    
+                    <!-- Electricity Payment -->
+                    <TitledPane expanded="false" style="-fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Electricity Payment">
+                        <content>
+                            <VBox spacing="15.0" style="-fx-background-color: rgba(210,180,140,0.15); -fx-padding: 20;">
+                                <HBox spacing="20.0">
+                                    <VBox prefWidth="350.0" spacing="8.0">
+                                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Provider:" />
+                                        <ComboBox fx:id="cmbElectricity" promptText="Select provider" styleClass="combo-box" />
+                                    </VBox>
+                                    <VBox prefWidth="350.0" spacing="8.0">
+                                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Meter Number:" />
+                                        <TextField fx:id="txtMeterNumber" promptText="Enter meter number" styleClass="text-field" />
+                                    </VBox>
+                                </HBox>
+                                <VBox prefWidth="300.0" spacing="8.0">
+                                    <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                                    <TextField fx:id="txtElectricityAmount" promptText="Enter amount" styleClass="text-field" />
+                                </VBox>
+                                <Button onAction="#handleElectricityPayment" styleClass="button" text="Pay Electricity Bill" />
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- Airtime Purchase -->
+                    <TitledPane expanded="false" style="-fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Airtime Purchase">
+                        <content>
+                            <VBox spacing="15.0" style="-fx-background-color: rgba(210,180,140,0.15); -fx-padding: 20;">
+                                <HBox spacing="20.0">
+                                    <VBox prefWidth="350.0" spacing="8.0">
+                                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Network:" />
+                                        <ComboBox fx:id="cmbAirtime" promptText="Select network" styleClass="combo-box" />
+                                    </VBox>
+                                    <VBox prefWidth="350.0" spacing="8.0">
+                                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Phone Number:" />
+                                        <TextField fx:id="txtPhoneNumber" promptText="Enter phone number" styleClass="text-field" />
+                                    </VBox>
+                                </HBox>
+                                <VBox prefWidth="300.0" spacing="8.0">
+                                    <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                                    <TextField fx:id="txtAirtimeAmount" promptText="Enter amount" styleClass="text-field" />
+                                </VBox>
+                                <Button onAction="#handleAirtimePayment" styleClass="button" text="Buy Airtime" />
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- Water Bill Payment -->
+                    <TitledPane expanded="false" style="-fx-font-weight: bold; -fx-border-color: #D2B48C;" text="Water Bill Payment">
+                        <content>
+                            <VBox spacing="15.0" style="-fx-background-color: rgba(210,180,140,0.15); -fx-padding: 20;">
+                                <HBox spacing="20.0">
+                                    <VBox prefWidth="350.0" spacing="8.0">
+                                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Water Provider:" />
+                                        <ComboBox fx:id="cmbMetsi" promptText="Select provider" styleClass="combo-box" />
+                                    </VBox>
+                                    <VBox prefWidth="350.0" spacing="8.0">
+                                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Account Number:" />
+                                        <TextField fx:id="txtMetsiAccountNumber" promptText="Enter account number" styleClass="text-field" />
+                                    </VBox>
+                                </HBox>
+                                <VBox prefWidth="300.0" spacing="8.0">
+                                    <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Amount (P):" />
+                                    <TextField fx:id="txtMetsiAmount" promptText="Enter amount" styleClass="text-field" />
+                                </VBox>
+                                <Button onAction="#handleMetsiPayments" styleClass="button" text="Pay Water Bill" />
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- Feedback -->
+                    <Label fx:id="lblFeedback" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-padding: 10; -fx-alignment: center;" />
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

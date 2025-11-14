@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500" prefWidth="700" style="-fx-background-color: #fff3b0;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.OpenAccountController">
+
+    <children>
+        <!-- Header -->
+        <Pane prefHeight="70.0" prefWidth="700.0" style="-fx-background-color: #D2B48C; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3);">
+            <children>
+                <Text fill="#5D4037" layoutX="188.0" layoutY="43.0" text="Lekgwere Banking System">
+                    <font>
+                        <Font name="Segoe UI Bold" size="20.0" />
+                    </font>
+                </Text>
+            <ImageView fitHeight="80.0" fitWidth="90.0" layoutX="434.0" layoutY="-5.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/sunset-.png" />
+               </image>
+            </ImageView>
+            </children>
+        </Pane>
+
+        <!-- Main Content -->
+        <VBox layoutX="100.0" layoutY="100.0" prefWidth="500.0" spacing="20.0">
+
+            <!-- Title -->
+            <Text fill="#5D4037" style="-fx-font-weight: bold;" text="Create New Account">
+                <font>
+                    <Font name="Segoe UI" size="24.0" />
+                </font>
+            </Text>
+
+            <!-- Form -->
+            <VBox spacing="15.0" style="-fx-background-color: rgba(210, 180, 140, 0.3); -fx-background-radius: 10; -fx-padding: 20;">
+                <children>
+
+                    <!-- Account Type -->
+                    <VBox spacing="5.0">
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Account Type:" />
+                        <ComboBox fx:id="cmbAccountType" prefHeight="35.0" prefWidth="300.0" promptText="Select Account Type" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5;" />
+                    </VBox>
+
+                    <!-- Initial Deposit -->
+                    <VBox spacing="5.0">
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Initial Deposit (P):" />
+                        <TextField fx:id="txtInitialDeposit" prefHeight="35.0" prefWidth="300.0" promptText="Enter amount" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5;" />
+                    </VBox>
+
+                    <!-- Employer -->
+                    <VBox spacing="5.0">
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Employer:" />
+                        <TextField fx:id="txtEmployer" prefHeight="35.0" prefWidth="300.0" promptText="Enter employer name" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5;" />
+                    </VBox>
+
+                    <!-- Reason -->
+                    <VBox spacing="5.0">
+                        <Label style="-fx-text-fill: #5D4037; -fx-font-weight: bold;" text="Reason for Account:" />
+                        <TextField fx:id="txtReason" prefHeight="60.0" prefWidth="300.0" promptText="Explain why you need this account" style="-fx-background-color: white; -fx-border-color: #D2B48C; -fx-border-radius: 5;" />
+                    </VBox>
+                </children>
+            </VBox>
+
+            <!-- Buttons -->
+            <VBox alignment="CENTER" spacing="10.0">
+                <children>
+                    <Button fx:id="btnSubmitRequest" onAction="#handleSubmitRequest" style="-fx-background-color: #D2B48C; -fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-background-radius: 8; -fx-pref-width: 200; -fx-pref-height: 40;" text="Submit Request" />
+                    <Button onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: #5D4037; -fx-border-color: #5D4037; -fx-border-radius: 8; -fx-pref-width: 150; -fx-pref-height: 35;" text="Back to Dashboard" />
+                </children>
+            </VBox>
+
+            <!-- Feedback -->
+            <Label fx:id="lblFeedback" prefWidth="450" style="-fx-text-fill: #5D4037; -fx-font-weight: bold; -fx-alignment: center;" />
+
+        </VBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="559.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/mammal.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
