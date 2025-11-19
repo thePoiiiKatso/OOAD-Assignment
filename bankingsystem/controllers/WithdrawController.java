@@ -39,7 +39,7 @@ public class WithdrawController {
         cmbAccountType.setItems(FXCollections.observableArrayList("Savings", "Cheque", "Investors"));
         cmbAccountType.setOnAction(e -> handleAccountSelection());
 
-        // ✅ Auto-load session data
+        // Load session user
         var sessionUser = SessionManager.getCurrentCustomer();
         if (sessionUser != null) {
             this.customerId = sessionUser.getId();
@@ -93,7 +93,7 @@ public class WithdrawController {
     }
 
     // ------------------------------------------------------------------
-    // Core Withdraw Logic
+    // Account Selection
     // ------------------------------------------------------------------
     private void handleAccountSelection() {
         String selectedType = cmbAccountType.getValue();
@@ -106,15 +106,33 @@ public class WithdrawController {
 
         if (currentAccount != null) {
             txtAvailableBalance.setText(String.format("P %.2f", currentAccount.getBalance()));
+
+            // Disable withdrawal input for Savings account
+            if (currentAccount.getAccountType().equalsIgnoreCase("Savings")) {
+                lblFeedback.setText("ℹ Savings accounts cannot withdraw.");
+                txtWithdrawAmount.setDisable(true);
+            } else {
+                txtWithdrawAmount.setDisable(false);
+            }
+
         } else {
             txtAvailableBalance.setText("Account not found");
         }
     }
 
+    // ------------------------------------------------------------------
+    // Withdraw Logic
+    // ------------------------------------------------------------------
     @FXML
     private void handleWithdraw() {
         if (currentAccount == null) {
             lblFeedback.setText("⚠ Please select an account first.");
+            return;
+        }
+
+        // ❌ Block all withdrawals for Savings accounts
+        if (currentAccount.getAccountType().equalsIgnoreCase("Savings")) {
+            lblFeedback.setText("❌ Withdrawals are not allowed for Savings accounts.");
             return;
         }
 
@@ -132,9 +150,16 @@ public class WithdrawController {
 
             accountDAO.save(currentAccount);
 
-            String mobile = txtMobileNumber.getText().isBlank() ? "N/A" : txtMobileNumber.getText().trim();
-            transactionDAO.record(currentAccount.getAccountNumber(), "Withdrawal", amount,
-                    "Cash withdrawal (Mobile: " + mobile + ")");
+            String mobile = txtMobileNumber.getText().isBlank()
+                    ? "N/A"
+                    : txtMobileNumber.getText().trim();
+
+            transactionDAO.record(
+                    currentAccount.getAccountNumber(),
+                    "Withdrawal",
+                    amount,
+                    "Cash withdrawal (Mobile: " + mobile + ")"
+            );
 
             lblFeedback.setText(String.format("✅ Successfully withdrew P%.2f", amount));
             txtAvailableBalance.setText(String.format("P %.2f", currentAccount.getBalance()));
