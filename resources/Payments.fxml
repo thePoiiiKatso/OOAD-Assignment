@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="900.0" style="-fx-background-color: rgba(210,180,140,0.35);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankingsystem.controllers.PaymentsController">
+
+    <children>
+
+        <!-- HEADER -->
+        <Pane prefHeight="70" prefWidth="900" style="-fx-background-color:#D2B48C;                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 3);">
+            <children>
+
+                <Button layoutX="20" layoutY="20" onAction="#handleBack" style="-fx-background-color: transparent;                                -fx-text-fill:#5D4037;                                -fx-font-weight:bold;" text="Back" />
+
+                <Text layoutX="300" layoutY="42" style="-fx-fill:#5D4037; -fx-font-size:20px; -fx-font-weight:bold;" text="Lekgwere Banking System" />
+
+                <ImageView fitHeight="70" fitWidth="80" layoutX="558.0" layoutY="-1.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/sunset-.png" />
+                    </image>
+                </ImageView>
+
+            </children>
+        </Pane>
+
+        <!-- MAIN CONTENT -->
+        <ScrollPane layoutX="24.0" layoutY="64.0" prefHeight="680" prefWidth="900" style="-fx-background-color:transparent;">
+            <content>
+
+                <VBox alignment="TOP_CENTER" prefHeight="1055.0" prefWidth="700.0" spacing="40" style="-fx-padding:25;">
+
+                    <!-- PAGE TITLE -->
+                    <Text style="-fx-fill: #5D4037; -fx-font-size: 30px; -fx-font-weight: bold;" text="Payments with Lekgwere" textAlignment="RIGHT" />
+
+                    <!-- ================= BILL PAYMENT SECTION ================= -->
+                    <VBox prefWidth="650" spacing="22" style="-fx-background-color: rgba(210,180,140,0.55);                                  -fx-background-radius: 15;                                  -fx-padding: 30;                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);">
+
+                        <Text style="-fx-fill:#5D4037; -fx-font-size:24px; -fx-font-weight:bold;" text="General Bill Payment" />
+
+                        <!-- PAY FROM ACCOUNT -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Pay From Account:" />
+                            <ComboBox fx:id="cmbPayFrom" prefWidth="400" promptText="Select Account" style="-fx-background-color:white; -fx-border-color:#5D4037; -fx-border-radius:5;" />
+                        </VBox>
+
+                        <!-- PAYMENT TYPE -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Payment Type:" />
+                            <ComboBox fx:id="cmbPaymentType" prefWidth="400" promptText="Select Payment Type" style="-fx-background-color:white; -fx-border-color:#5D4037; -fx-border-radius:5;" />
+                        </VBox>
+
+                        <!-- REFERENCE -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Reference / Meter / Account Number:" />
+                            <TextField fx:id="txtReference" prefWidth="400" promptText="Enter 11-digit reference number" style="-fx-background-color:white; -fx-border-color:#5D4037; -fx-border-radius:5;" />
+                        </VBox>
+
+                        <!-- AMOUNT -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Amount (P):" />
+                            <TextField fx:id="txtAmount" prefWidth="400" promptText="Enter amount" style="-fx-background-color:white; -fx-border-color:#5D4037; -fx-border-radius:5;" />
+                        </VBox>
+
+                        <!-- PAY BUTTON -->
+                        <Button onAction="#handleGeneralPayment" style="-fx-background-color:#D2B48C;                                        -fx-text-fill:#5D4037;                                        -fx-font-weight:bold;                                        -fx-background-radius:10;                                        -fx-pref-width:180;                                        -fx-pref-height:45;" text="Pay Now" />
+
+                        <Label fx:id="lblPaymentFeedback" style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" />
+                    </VBox>
+
+
+
+                    <!-- ================= AIRTIME PURCHASE SECTION ================= -->
+                    <VBox prefWidth="650" spacing="22" style="-fx-background-color: rgba(210,180,140,0.55);                                  -fx-background-radius: 15;                                  -fx-padding: 30;                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);">
+
+                        <Text style="-fx-fill:#5D4037; -fx-font-size:24px; -fx-font-weight:bold;" text="Airtime Purchase" />
+
+                        <!-- PHONE NUMBER -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Phone Number:" />
+
+                            <HBox spacing="10">
+                                <TextField editable="false" prefWidth="60" style="-fx-background-color:white; -fx-font-weight:bold;                                                   -fx-border-color:#5D4037;                                                   -fx-border-radius:5;" text="+267" />
+
+                                <TextField fx:id="txtAirtimePhone" prefWidth="300" promptText="Enter 8-digit number" style="-fx-background-color:white;                                                   -fx-border-color:#5D4037;                                                   -fx-border-radius:5;" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- PROVIDER -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Service Provider:" />
+                            <ComboBox fx:id="cmbAirtimeProvider" prefWidth="400" promptText="Select Provider" style="-fx-background-color:white; -fx-border-color:#5D4037; -fx-border-radius:5;" />
+                        </VBox>
+
+                        <!-- AMOUNT -->
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" text="Amount (P):" />
+                            <TextField fx:id="txtAirtimeAmount" prefWidth="400" promptText="Enter airtime amount" style="-fx-background-color:white; -fx-border-color:#5D4037; -fx-border-radius:5;" />
+                        </VBox>
+
+                        <!-- BUY BUTTON -->
+                        <Button onAction="#handleAirtimePurchase" style="-fx-background-color:#5D4037;                                        -fx-text-fill:white;                                        -fx-font-weight:bold;                                        -fx-background-radius:10;                                        -fx-pref-width:180;                                        -fx-pref-height:45;" text="Buy Airtime" />
+
+                        <Label fx:id="lblAirtimeFeedback" style="-fx-text-fill:#5D4037; -fx-font-weight:bold;" />
+
+                    </VBox>
+
+                </VBox>
+            </content>
+        </ScrollPane>
+
+    </children>
+</AnchorPane>

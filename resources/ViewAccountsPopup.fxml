@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="320" prefWidth="500"
+            style="-fx-background-color: #f2e6c9; -fx-border-radius: 10; -fx-background-radius: 10;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="bankingsystem.controllers.ViewAccountsPopupController">
+
+    <children>
+
+        <VBox spacing="10" alignment="CENTER"
+              layoutX="25" layoutY="20" prefWidth="450">
+
+            <TableView fx:id="tblAccounts" prefHeight="220" prefWidth="450"
+                       style="-fx-background-color: white; -fx-border-color: #b89368;">
+
+                <columns>
+                    <TableColumn fx:id="colType" text="Account Type" prefWidth="150"/>
+                    <TableColumn fx:id="colNumber" text="Account Number" prefWidth="150"/>
+                    <TableColumn fx:id="colBalance" text="Balance" prefWidth="150"/>
+                </columns>
+
+            </TableView>
+
+            <Button text="Close"
+                    onAction="#handleClose"
+                    style="-fx-background-color: #b89368; -fx-text-fill: #4b3621;
+                           -fx-font-weight: bold; -fx-background-radius: 8;
+                           -fx-pref-width: 120; -fx-pref-height: 35;" />
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>

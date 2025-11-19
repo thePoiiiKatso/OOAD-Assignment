@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="700" prefWidth="873"
+            style="-fx-background-color: #f2e6c9;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="bankingsystem.controllers.SettingsController">
+
+    <children>
+
+        <!-- Header -->
+        <Pane prefHeight="80" prefWidth="873"
+              style="-fx-background-color: #b89368;">
+            <children>
+
+                <Button text="Back"
+                        layoutX="20" layoutY="20"
+                        onAction="#handleBack"
+                        style="-fx-background-radius: 8; -fx-background-color: #d2b48c;
+                               -fx-font-weight: bold; -fx-text-fill: #4b3621;"/>
+
+                <Text layoutX="380" layoutY="50" text="Settings" fill="#4b3621">
+                    <font>
+                        <Font name="Segoe UI Bold" size="24"/>
+                    </font>
+                </Text>
+
+                <ImageView fitHeight="80" fitWidth="90" layoutX="500" layoutY="0" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/sunset-.png"/>
+                    </image>
+                </ImageView>
+
+            </children>
+        </Pane>
+
+        <!-- Main Content -->
+        <VBox layoutX="150" layoutY="100" spacing="18" prefWidth="570">
+
+            <!-- Change Password -->
+            <VBox spacing="8" style="
+                -fx-background-color: #c8a97e;
+                -fx-opacity: 0.90;
+                -fx-background-radius: 12;
+                -fx-padding: 18;">
+
+                <Text text="Change Password" fill="#4b3621">
+                    <font><Font name="Segoe UI Bold" size="18"/></font>
+                </Text>
+
+                <Label text="Current Password:" style="-fx-text-fill: #4b3621; -fx-font-weight: bold;"/>
+                <PasswordField fx:id="txtCurrentPassword" prefWidth="350"/>
+
+                <Label text="New Password:" style="-fx-text-fill: #4b3621; -fx-font-weight: bold;"/>
+                <PasswordField fx:id="txtNewPassword" prefWidth="350"/>
+
+                <Label text="Confirm New Password:" style="-fx-text-fill: #4b3621; -fx-font-weight: bold;"/>
+                <PasswordField fx:id="txtConfirmPassword" prefWidth="350"/>
+
+                <Button fx:id="btnUpdatePassword" text="Update Password"
+                        style="-fx-background-color: #b89368; -fx-text-fill: #4b3621;
+                               -fx-font-weight: bold; -fx-background-radius: 8;
+                               -fx-pref-width: 170; -fx-pref-height: 32;"
+                        onAction="#handleUpdatePassword"/>
+            </VBox>
+
+            <!-- Delete Account -->
+            <VBox spacing="8" style="
+                -fx-background-color: #c8a97e;
+                -fx-opacity: 0.90;
+                -fx-background-radius: 12;
+                -fx-padding: 18;">
+
+                <Text text="Delete Account" fill="#4b3621">
+                    <font><Font name="Segoe UI Bold" size="18"/></font>
+                </Text>
+
+                <Label text="Select Account:" style="-fx-text-fill: #4b3621; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="cmbAccounts" prefWidth="350"
+                          promptText="Select Account (Type – Number)"/>
+
+                <Button fx:id="btnDeleteAccount" text="Delete Account"
+                        style="-fx-background-color: #b89368; -fx-text-fill: #4b3621;
+                               -fx-font-weight: bold; -fx-background-radius: 8;
+                               -fx-pref-width: 170; -fx-pref-height: 32;"
+                        onAction="#handleDeleteAccount"/>
+            </VBox>
+
+            <!-- View Accounts -->
+            <VBox spacing="8" style="
+                -fx-background-color: #c8a97e;
+                -fx-opacity: 0.90;
+                -fx-background-radius: 12;
+                -fx-padding: 18;">
+
+                <Text text="View Accounts" fill="#4b3621">
+                    <font><Font name="Segoe UI Bold" size="18"/></font>
+                </Text>
+
+                <Button fx:id="btnViewAccounts" text="View Accounts"
+                        style="-fx-background-color: #b89368; -fx-text-fill: #4b3621;
+                               -fx-font-weight: bold; -fx-background-radius: 8;
+                               -fx-pref-width: 170; -fx-pref-height: 32;"
+                        onAction="#handleViewAccounts"/>
+            </VBox>
+
+            <!-- Feedback -->
+            <Label fx:id="lblFeedback" prefWidth="450"
+                   style="-fx-text-fill: #4b3621; -fx-font-weight: bold; -fx-alignment: center;"/>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>
